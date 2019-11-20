@@ -56,7 +56,7 @@ componentDidMount(){
   const property = this.props.property
   const id = this.props.id
   this.setState({
-               id,
+               id:id,
         [property]:property
     })
 }

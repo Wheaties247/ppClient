@@ -65,7 +65,7 @@ class ModelProfile extends React.Component{
   	const {container, editBox, button} = styles
     console.log("THIS.STATE", this.state)
     const {
-        model_id,
+        id,
         user_name,
         email, 
         paypal, 
@@ -82,9 +82,8 @@ class ModelProfile extends React.Component{
         />
         <div className={editBox}>
           {this.state.editUser_name? <EditAttribute
-                    id ={model_id}
-                  endpoint = "models"
-
+                    id ={id}
+                    endpoint = "models"
                     type = "userName" 
                     property = "user_name"
                     propertyVal={user_name}
@@ -99,9 +98,8 @@ class ModelProfile extends React.Component{
 
         <div  className={editBox}>
            {this.state.editEmail? <EditAttribute
-                  endpoint = "models"
-                    id ={model_id}
-
+                      endpoint = "models"
+                      id ={id}
                       type = "email" 
                       property = "email"
                       propertyVal={email}
@@ -117,9 +115,8 @@ class ModelProfile extends React.Component{
         <div className={editBox}>
 
            {this.state.editAstro? <EditAttribute 
-                  endpoint = "models"
-                    id ={model_id}
-
+                    endpoint = "models"
+                    id ={id}
                     type ="astro"
                     property = "astro_sign"
                     propertyVal={astro_sign}
@@ -135,9 +132,8 @@ class ModelProfile extends React.Component{
         <div className={editBox}>
 
            {this.state.editPaypal? <EditAttribute 
-                  endpoint = "models"
-                    id ={model_id}
-
+                    endpoint = "models"
+                    id ={id}
                     type ="paypal"
                     property = "paypal"
                     propertyVal={paypal}

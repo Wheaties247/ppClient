@@ -52,7 +52,7 @@ class UserProfile extends React.Component{
   render(){
     console.log("navBar this.props.location.state", this.props.location.state)
     const {
-        user_id,
+        id,
         user_name,
         email,  
         tokens, 
@@ -67,7 +67,7 @@ class UserProfile extends React.Component{
         />
        <div className={editBox}>
         {this.state.editUser_name? <EditAttribute
-                  id = {user_id}
+                  id = {id}
                   endpoint = "users"
                   type = "userName" 
                   property = "user_name"
@@ -82,7 +82,7 @@ class UserProfile extends React.Component{
         {/* BREAK*/}
         <div  className={editBox}>
            {this.state.editEmail? <EditAttribute
-                      id = {user_id}
+                      id = {id}
                       endpoint = "users"
                       type = "email" 
                       property = "email"
@@ -98,7 +98,7 @@ class UserProfile extends React.Component{
         <div className={editBox}>
 
            {this.state.editPaypal? <EditAttribute 
-                    id = {user_id}
+                    id = {id}
                     endpoint = "users"
                     type ="paypal"
                     property = "paypal"
