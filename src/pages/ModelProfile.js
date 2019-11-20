@@ -18,6 +18,7 @@ class ModelProfile extends React.Component{
     this.toggleEditAstro = this.toggleEditAstro.bind(this)
     this.toggleEditPaypal = this.toggleEditPaypal.bind(this)
     this.toggleEditEmail = this.toggleEditEmail.bind(this)
+    this.editRequestHandler = this.editRequestHandler.bind(this)
   }
   componentDidMount(){
     const {
@@ -38,6 +39,13 @@ class ModelProfile extends React.Component{
           astro_sign,
           picture_url
         })
+  }
+    editRequestHandler(info){
+    console.log("editRequesthandler", info.resp)
+    console.log("this.state", this.state)
+
+    const {email, payment_info, tokens, user_id, user_name, astro_sign} = info.resp
+    this.setState({email, payment_info, tokens, id:user_id, user_name}, ()=>console.log("after setState", this.state))
   }
   toggleEditUsername(){
     this.setState(prevState=>{
@@ -84,6 +92,7 @@ class ModelProfile extends React.Component{
         />
         <div className={editBox}>
           {this.state.editUser_name? <EditAttribute
+                    editRequestHandler={this.editRequestHandler}
                     id ={id}
                     endpoint = "models"
                     type = "userName" 
@@ -100,6 +109,7 @@ class ModelProfile extends React.Component{
 
         <div  className={editBox}>
            {this.state.editEmail? <EditAttribute
+                      editRequestHandler={this.editRequestHandler}
                       endpoint = "models"
                       id ={id}
                       type = "email" 
@@ -117,6 +127,7 @@ class ModelProfile extends React.Component{
         <div className={editBox}>
 
            {this.state.editAstro? <EditAttribute 
+                    editRequestHandler={this.editRequestHandler}
                     endpoint = "models"
                     id ={id}
                     type ="astro"
@@ -134,6 +145,7 @@ class ModelProfile extends React.Component{
         <div className={editBox}>
 
            {this.state.editPaypal? <EditAttribute 
+                    editRequestHandler={this.editRequestHandler}
                     endpoint = "models"
                     id ={id}
                     type ="paypal"
