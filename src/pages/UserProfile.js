@@ -17,6 +17,20 @@ class UserProfile extends React.Component{
     this.toggleEditEmail = this.toggleEditEmail.bind(this)
 
   }
+    componentDidMount(){
+    const {
+        user_name,
+        email,  
+        tokens, 
+        paypal
+          } = this.props.location.state
+        this.setState({
+         user_name,
+        email,  
+        tokens, 
+        paypal
+        })
+  }
     toggleEditUsername(){
     this.setState(prevState=>{
       prevState.editUser_name = !prevState.editUser_name 
@@ -41,8 +55,8 @@ class UserProfile extends React.Component{
         user_name,
         email,  
         tokens, 
-        paypal
-          } = this.props.location.state
+        paypal  
+          } = this.state
     const {container, editBox, button} = styles
 
   	return(
