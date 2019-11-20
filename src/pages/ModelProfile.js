@@ -21,6 +21,7 @@ class ModelProfile extends React.Component{
   }
   componentDidMount(){
     const {
+        id,
         user_name,
         email, 
         paypal, 
@@ -29,6 +30,7 @@ class ModelProfile extends React.Component{
         picture_url
           } = this.props.location.state
         this.setState({
+          id,
           user_name,
           email, 
           paypal, 

@@ -19,13 +19,15 @@ class UserProfile extends React.Component{
   }
     componentDidMount(){
     const {
+        id,
         user_name,
         email,  
         tokens, 
         paypal
           } = this.props.location.state
         this.setState({
-         user_name,
+        id,
+        user_name,
         email,  
         tokens, 
         paypal
