@@ -1,0 +1,15 @@
+.editInput{
+	color: white;
+	border-bottom: 3px solid rgb(215, 39, 186);
+	text-align: center;
+}
+.container{
+	display: flex;
+	background: black;
+	align-items: center;
+	/*justify-content: center;*/
+}
+.selectContainer{
+	display: flex;
+	margin-left: 3%;
+}

@@ -1,0 +1,17 @@
+.container{
+	background: black;
+	color: white;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+.editBox{
+	border: 2px solid black;
+	display: flex;
+	justify-content: space-between;
+}
+.button{
+	border: 3px solid rgb(215, 39, 186);
+	border-radius: 5px;
+	padding: 1px;
+}

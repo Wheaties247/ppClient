@@ -1,0 +1,48 @@
+.heading{
+	color:rgb(215, 39, 186);
+	position: fixed;
+	top:0;
+	margin-bottom: 
+}
+.container{
+	height: 100vh;
+	background:white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: black;
+
+}
+.requestContainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 45%;
+	margin:4%;
+	color: rgb(215, 39, 186);
+	 font-size: 1.5em;
+}
+.vertLine{
+	height: 80%;
+	width: .5px;
+	border: .5px solid rgb(215, 39, 186);
+}
+input {
+	background: transparent;
+	color: white;
+	border: 0 solid;
+	margin: 3%;
+
+}
+input[type=submit]{
+	background: black;
+	color:rgb(215, 39, 186);
+	border: 2px solid white;
+	border-radius: 5px;
+	font-weight: 800;
+	padding:;
+}
+input[type=submit]:hover{
+	background: rgb(215, 39, 186);
+	color:black;
+}

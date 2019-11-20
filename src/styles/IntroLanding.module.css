@@ -1,0 +1,49 @@
+.container{
+	background: black;
+	height: 100vh;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.fadeTitle{
+	color: rgb(215, 39, 186);
+	font-family: 'Satisfy', cursive;
+	animation: fadeIn 3s;
+	font-size: 4em;
+	letter-spacing: 10px;
+	/*animation-delay:2s;*/
+	animation-iteration-count: 1;
+}
+
+.fadeSubTitle{
+	/*opacity: 0;*/
+	color: rgb(215, 39, 186);
+	font-family: 'Satisfy', cursive;
+	animation: fadeInSub 5s;
+	letter-spacing: 10px;
+
+	/*animation-delay:2s;*/
+	animation-iteration-count: 1;
+
+}
+@keyframes fadeIn{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+@keyframes fadeInSub{
+	0%{
+		opacity: 0;
+	}
+	50%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}

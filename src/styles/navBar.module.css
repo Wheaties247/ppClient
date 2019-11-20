@@ -1,0 +1,14 @@
+.container{
+	background: green;
+	height: 10vh;
+	width: 100vw;
+	display:flex;
+	justify-content: space-around;
+}
+.identifiyer{
+	background: red;
+	font-size: .8em;
+	width:25%;
+	display: flex;
+	justify-content: space-around;
+}
