@@ -15,7 +15,7 @@ class UserProfile extends React.Component{
     this.toggleEditUsername = this.toggleEditUsername.bind(this)
     this.toggleEditPaypal = this.toggleEditPaypal.bind(this)
     this.toggleEditEmail = this.toggleEditEmail.bind(this)
-
+    this.editRequestHandler = this.editRequestHandler.bind(this)
   }
     componentDidMount(){
     const {
@@ -32,6 +32,13 @@ class UserProfile extends React.Component{
         tokens, 
         paypal
         })
+  }
+  editRequestHandler(info){
+    console.log("editRequesthandler", info.resp)
+    console.log("this.state", this.state)
+
+    const {email, payment_info, tokens, user_id, user_name} = info.resp
+    this.setState({email, payment_info, tokens, id:user_id, user_name}, ()=>console.log("after setState", this.state))
   }
     toggleEditUsername(){
     this.setState(prevState=>{
@@ -69,6 +76,7 @@ class UserProfile extends React.Component{
         />
        <div className={editBox}>
         {this.state.editUser_name? <EditAttribute
+                  editRequestHandler={this.editRequestHandler}
                   id = {id}
                   endpoint = "users"
                   type = "userName" 
@@ -84,6 +92,7 @@ class UserProfile extends React.Component{
         {/* BREAK*/}
         <div  className={editBox}>
            {this.state.editEmail? <EditAttribute
+                      editRequestHandler={this.editRequestHandler}
                       id = {id}
                       endpoint = "users"
                       type = "email" 
@@ -100,6 +109,7 @@ class UserProfile extends React.Component{
         <div className={editBox}>
 
            {this.state.editPaypal? <EditAttribute 
+                    editRequestHandler={this.editRequestHandler}
                     id = {id}
                     endpoint = "users"
                     type ="paypal"
