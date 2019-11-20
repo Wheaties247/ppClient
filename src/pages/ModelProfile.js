@@ -19,7 +19,24 @@ class ModelProfile extends React.Component{
     this.toggleEditPaypal = this.toggleEditPaypal.bind(this)
     this.toggleEditEmail = this.toggleEditEmail.bind(this)
   }
-
+  componentDidMount(){
+    const {
+        user_name,
+        email, 
+        paypal, 
+        tokens, 
+        astro_sign,
+        picture_url
+          } = this.props.location.state
+        this.setState({
+          user_name,
+          email, 
+          paypal, 
+          tokens, 
+          astro_sign,
+          picture_url
+        })
+  }
   toggleEditUsername(){
     this.setState(prevState=>{
       prevState.editUser_name = !prevState.editUser_name 
@@ -54,7 +71,7 @@ class ModelProfile extends React.Component{
         tokens, 
         astro_sign,
         picture_url
-          } = this.props.location.state
+          } = this.state
 
 
   	return(
