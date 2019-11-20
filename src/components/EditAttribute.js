@@ -10,7 +10,6 @@ class EditPost extends Component{
     this.state = {
       error:""
     }
-    this.switchRender = this.switchRender.bind(this)
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -46,6 +45,7 @@ handleSubmit(e){
   })
   .then(resp=>{
     console.log('PUT request Responce',resp);
+    this.props.editRequestHandler(resp.data)
   })
   .catch(err => {
         console.log("there was an error @ PUT request", err);
@@ -60,9 +60,7 @@ componentDidMount(){
         [property]:property
     })
 }
-switchRender(){
 
-}
 render(){
       console.log(this.props.type)
 
