@@ -8,10 +8,7 @@ class EditPost extends Component{
   constructor(props){
     super(props);
     this.state = {
-      error:"",
-      user_name: null,
-      email: null,
-      astro_sign: null
+      error:""
     }
     this.switchRender = this.switchRender.bind(this)
     this.handleChange = this.handleChange.bind(this);
@@ -43,7 +40,7 @@ handleSubmit(e){
   const {error, ...info} = this.state
   this.setState({error:""})
   axios({
-    url:`http://localhost:7770/models/edit`,
+    url:`http://localhost:7770/${this.props.endpoint}/edit`,
     method:'PUT',
     data : info
   })
