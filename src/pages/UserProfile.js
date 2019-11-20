@@ -7,10 +7,14 @@ class UserProfile extends React.Component{
 	constructor(props) {
     super(props);
     this.state ={
-      editUser_name:false
+      editUser_name:false,
+      editPaypal:false,
+      editEmail: false
 
     }
     this.toggleEditUsername = this.toggleEditUsername.bind(this)
+    this.toggleEditPaypal = this.toggleEditPaypal.bind(this)
+    this.toggleEditEmail = this.toggleEditEmail.bind(this)
 
   }
     toggleEditUsername(){
@@ -19,12 +23,25 @@ class UserProfile extends React.Component{
       return prevState
     })
   }
+     toggleEditEmail(){
+    this.setState(prevState=>{
+      prevState.editEmail = !prevState.editEmail 
+      return prevState
+    })
+  }
+  toggleEditPaypal(){
+    this.setState(prevState=>{
+      prevState.editPaypal = !prevState.editPaypal 
+      return prevState
+    })
+  }
   render(){
     console.log("navBar this.props.location.state", this.props.location.state)
     const {
         user_name,
         email,  
-        tokens
+        tokens, 
+        paypal
           } = this.props.location.state
     const {container, editBox, button} = styles
 
@@ -46,6 +63,32 @@ class UserProfile extends React.Component{
          </h2>
       </div>
         {/* BREAK*/}
+        <div  className={editBox}>
+           {this.state.editEmail? <EditAttribute
+                      type = "email" 
+                      property = "email"
+                      propertyVal={email}
+                  />:<h2>Email: {email}</h2>}
+             <h2 
+             className = {button}
+             onClick ={()=>this.toggleEditEmail()}>
+               Edit Email Address
+             </h2>
+        </div>
+        {/* BREAK*/}
+        <div className={editBox}>
+
+           {this.state.editPaypal? <EditAttribute 
+                    type ="paypal"
+                    property = "paypal"
+                    propertyVal={paypal}
+                /> :<h2>PayPal Account: {paypal}</h2>}
+           <h2 
+           className = {button}
+           onClick ={()=>this.toggleEditPaypal()}>
+             Edit Paypal Info
+           </h2>
+        </div>
   		</div>
   		)
   }

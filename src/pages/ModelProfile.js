@@ -20,11 +20,6 @@ class ModelProfile extends React.Component{
     this.toggleEditEmail = this.toggleEditEmail.bind(this)
   }
 
-  
-  handleChange(e){
-  const name = e.target.name;
-    this.setState({[name]:e.target.value});
-  }
   toggleEditUsername(){
     this.setState(prevState=>{
       prevState.editUser_name = !prevState.editUser_name 
