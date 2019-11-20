@@ -67,7 +67,7 @@ class UserProfile extends React.Component{
         />
        <div className={editBox}>
         {this.state.editUser_name? <EditAttribute
-                  user_id = {user_id}
+                  id = {user_id}
                   endpoint = "users"
                   type = "userName" 
                   property = "user_name"
@@ -82,7 +82,7 @@ class UserProfile extends React.Component{
         {/* BREAK*/}
         <div  className={editBox}>
            {this.state.editEmail? <EditAttribute
-                      user_id = {user_id}
+                      id = {user_id}
                       endpoint = "users"
                       type = "email" 
                       property = "email"
@@ -98,7 +98,7 @@ class UserProfile extends React.Component{
         <div className={editBox}>
 
            {this.state.editPaypal? <EditAttribute 
-                    user_id = {user_id}
+                    id = {user_id}
                     endpoint = "users"
                     type ="paypal"
                     property = "paypal"

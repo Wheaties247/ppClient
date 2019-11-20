@@ -54,9 +54,9 @@ handleSubmit(e){
 
 componentDidMount(){
   const property = this.props.property
-  const user_id = this.props.user_id
+  const id = this.props.id
   this.setState({
-         user_id : user_id,
+               id,
         [property]:property
     })
 }
