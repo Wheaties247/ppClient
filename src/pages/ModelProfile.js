@@ -81,6 +81,8 @@ class ModelProfile extends React.Component{
         />
         <div className={editBox}>
           {this.state.editUser_name? <EditAttribute
+                  endpoint = "models"
+
                     type = "userName" 
                     property = "user_name"
                     propertyVal={user_name}
@@ -95,6 +97,8 @@ class ModelProfile extends React.Component{
 
         <div  className={editBox}>
            {this.state.editEmail? <EditAttribute
+                  endpoint = "models"
+
                       type = "email" 
                       property = "email"
                       propertyVal={email}
@@ -110,6 +114,8 @@ class ModelProfile extends React.Component{
         <div className={editBox}>
 
            {this.state.editAstro? <EditAttribute 
+                  endpoint = "models"
+
                     type ="astro"
                     property = "astro_sign"
                     propertyVal={astro_sign}
@@ -125,6 +131,8 @@ class ModelProfile extends React.Component{
         <div className={editBox}>
 
            {this.state.editPaypal? <EditAttribute 
+                  endpoint = "models"
+             
                     type ="paypal"
                     property = "paypal"
                     propertyVal={paypal}

@@ -62,10 +62,11 @@ class UserProfile extends React.Component{
   	return(
   		<div className={container}>
         <NavBar
-        userInfo ={this.props.location.state}
+        userInfo ={this.state}
         />
        <div className={editBox}>
         {this.state.editUser_name? <EditAttribute
+                  endpoint = "users"
                   type = "userName" 
                   property = "user_name"
                   propertyVal={user_name}
@@ -79,6 +80,7 @@ class UserProfile extends React.Component{
         {/* BREAK*/}
         <div  className={editBox}>
            {this.state.editEmail? <EditAttribute
+                  endpoint = "users"
                       type = "email" 
                       property = "email"
                       propertyVal={email}
@@ -93,6 +95,7 @@ class UserProfile extends React.Component{
         <div className={editBox}>
 
            {this.state.editPaypal? <EditAttribute 
+                  endpoint = "users"
                     type ="paypal"
                     property = "paypal"
                     propertyVal={paypal}
