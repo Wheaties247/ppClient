@@ -2,8 +2,8 @@ import React from "react"
 import styles from "../styles/userProfile.module.css"
 import NavBar from "../components/NavBar"
 import EditAttribute from "../components/EditAttribute"
-import {Helmet} from "react-helmet";
-import cloudinary from "cloudinary-core";
+import ImageUpload from  "../components/ImageUpload"
+
 
 class UserProfile extends React.Component{
 	constructor(props) {
@@ -71,19 +71,18 @@ class UserProfile extends React.Component{
         paypal  
           } = this.state
     const {container, editBox, button} = styles
-
+   
   	return(
   		<div className={container}>
-        
-        {/*
-        <Helmet>
-         <script src="" />
-        </Helmet>
-        */}
 
         <NavBar
         userInfo ={this.state}
         />
+       <div className={editBox}>
+        <ImageUpload/>
+
+       </div>
+
        <div className={editBox}>
         {this.state.editUser_name? <EditAttribute
                   editRequestHandler={this.editRequestHandler}
