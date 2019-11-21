@@ -2,6 +2,8 @@ import React from "react"
 import styles from "../styles/userProfile.module.css"
 import NavBar from "../components/NavBar"
 import EditAttribute from "../components/EditAttribute"
+import {Helmet} from "react-helmet";
+import cloudinary from "cloudinary-core";
 
 class UserProfile extends React.Component{
 	constructor(props) {
@@ -17,6 +19,7 @@ class UserProfile extends React.Component{
     this.toggleEditEmail = this.toggleEditEmail.bind(this)
     this.editRequestHandler = this.editRequestHandler.bind(this)
   }
+
     componentDidMount(){
     const {
         id,
@@ -71,6 +74,13 @@ class UserProfile extends React.Component{
 
   	return(
   		<div className={container}>
+        
+        {/*
+        <Helmet>
+         <script src="" />
+        </Helmet>
+        */}
+
         <NavBar
         userInfo ={this.state}
         />
