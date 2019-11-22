@@ -7,7 +7,6 @@
 	display: flex;
 	background: black;
 	align-items: center;
-	/*justify-content: center;*/
 }
 .selectContainer{
 	display: flex;

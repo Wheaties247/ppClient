@@ -2,7 +2,7 @@ import React from "react"
 import styles from "../styles/userProfile.module.css"
 import NavBar from "../components/NavBar"
 import EditAttribute from "../components/EditAttribute"
-import ImageUpload from  "../components/ImageUpload"
+
 
 
 class UserProfile extends React.Component{
@@ -78,10 +78,7 @@ class UserProfile extends React.Component{
         <NavBar
         userInfo ={this.state}
         />
-       <div className={editBox}>
-        <ImageUpload/>
-
-       </div>
+       
 
        <div className={editBox}>
         {this.state.editUser_name? <EditAttribute
@@ -91,12 +88,13 @@ class UserProfile extends React.Component{
                   type = "userName" 
                   property = "user_name"
                   propertyVal={user_name}
-              />:<h2>User Name: {user_name}</h2>}
-         <h2 
+              />:<p>User Name: {user_name}</p>}
+         <p 
          className = {button}
-         onClick ={()=>this.toggleEditUsername()}>
-           Edit User Name
-         </h2>
+         onClick ={()=>this.toggleEditUsername()}
+         >
+           Change
+         </p>
       </div>
         {/* BREAK*/}
         <div  className={editBox}>
@@ -107,12 +105,13 @@ class UserProfile extends React.Component{
                       type = "email" 
                       property = "email"
                       propertyVal={email}
-                  />:<h2>Email: {email}</h2>}
-             <h2 
+                  />:<p>Email: {email}</p>}
+             <p
              className = {button}
-             onClick ={()=>this.toggleEditEmail()}>
-               Edit Email Address
-             </h2>
+             onClick ={()=>this.toggleEditEmail()}
+             >
+               Change
+             </p>
         </div>
         {/* BREAK*/}
         <div className={editBox}>
@@ -124,12 +123,13 @@ class UserProfile extends React.Component{
                     type ="paypal"
                     property = "paypal"
                     propertyVal={paypal}
-                /> :<h2>PayPal Account: {paypal}</h2>}
-           <h2 
+                /> :<p>PayPal Account: {paypal}</p>}
+           <p 
            className = {button}
-           onClick ={()=>this.toggleEditPaypal()}>
-             Edit Paypal Info
-           </h2>
+           onClick ={()=>this.toggleEditPaypal()}
+           >
+             Change
+           </p>
         </div>
   		</div>
   		)

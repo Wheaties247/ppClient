@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import cloudinary from "cloudinary-core"; 
+// import cloudinary from "cloudinary-core"; 
 import axios from 'axios';
+import styles from "../styles/imageUpload.module.css"
 
+const {container} = styles
 class ImageUpload extends Component{
 	constructor(props) {
     super(props);
@@ -29,9 +31,9 @@ class ImageUpload extends Component{
     this.setState({[name]:e.target.value});
   }
   render(){
-  	 const cl = new cloudinary.Cloudinary({
-      cloud_name: "thepinkimageserver",
-      secure: true});
+  	 // const cl = new cloudinary.Cloudinary({
+    //   cloud_name: "thepinkimageserver",
+    //   secure: true});
   // 	const  myWidget = cloudinary.createUploadWidget({
   // cloudName: 'thepinkimageserver', 
   // uploadPreset: 'my_preset'}, (error, result) => { 
@@ -40,11 +42,17 @@ class ImageUpload extends Component{
   //   }
   // }
 // )
-console.log("CL",cl)
+// console.log("CL",cl)
   	return(
-  		<div>
+  		<div className = {container}>
   			<h1 >IMAGE UPLOAD</h1>
   			<input onChange={this.handleChange} type="file" name="name"  />
+  			<input 
+              onClick = {()=>this.sendFileUpload()}
+              type= 'submit' 
+              value='Submit' 
+             />
+
   		</div>
   		)
   }

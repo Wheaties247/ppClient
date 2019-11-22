@@ -4,6 +4,7 @@ import React from "react"
 import styles from "../styles/modelProfile.module.css"
 import EditAttribute from "../components/EditAttribute"
 import NavBar from "../components/NavBar"
+import ImageUpload from  "../components/ImageUpload"
 
 class ModelProfile extends React.Component{
 	constructor(props) {
@@ -91,6 +92,10 @@ class ModelProfile extends React.Component{
           userInfo={this.props.location.state}
         />
         <div className={editBox}>
+        <ImageUpload/>
+
+       </div>
+        <div className={editBox}>
           {this.state.editUser_name? <EditAttribute
                     editRequestHandler={this.editRequestHandler}
                     id ={id}
@@ -102,7 +107,7 @@ class ModelProfile extends React.Component{
            <h2 
            className = {button}
            onClick ={()=>this.toggleEditUsername()}>
-             Edit User Name
+             Change
            </h2>
         </div>
         {/* BREAK*/}
@@ -119,7 +124,7 @@ class ModelProfile extends React.Component{
              <h2 
              className = {button}
              onClick ={()=>this.toggleEditEmail()}>
-               Edit Email Address
+               Change
              </h2>
         </div>
         {/* BREAK*/}
@@ -137,7 +142,7 @@ class ModelProfile extends React.Component{
            <h2 
            className = {button}
            onClick ={()=>this.toggleEditAstro()}>
-             Edit Astrologic sign
+             Change
            </h2>
         </div>
       {/* BREAK*/}
@@ -155,7 +160,7 @@ class ModelProfile extends React.Component{
            <h2 
            className = {button}
            onClick ={()=>this.toggleEditPaypal()}>
-             Edit Paypal Info
+             Change
            </h2>
         </div>
       

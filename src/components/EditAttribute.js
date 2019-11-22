@@ -23,11 +23,13 @@ handleChange(e){
   }
 handleSubmit(e){
   console.log("running")
+  ///////Is userNameLong Enough ////////
   if(this.props.type === "userName" && this.state.user_name.length <6){
   console.log("username error")
 
     return this.setState({error:"UserName must be greater than 5 characters"})
   }
+  /////////Is Email or paypal address valid //////
   if(this.props.type === "email" || this.props.type ===  "paypal"){
     if(!(this.validateEmail(this.state.email))){
   console.log("email or paypal error")
