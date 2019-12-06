@@ -3,6 +3,7 @@ import styles from "../styles/userProfile.module.css"
 import NavBar from "../components/NavBar"
 import EditAttribute from "../components/EditAttribute"
 import { navigate } from "gatsby"
+import TokenService from "../services/TokenService";
 
 
 
@@ -23,6 +24,17 @@ class UserProfile extends React.Component{
   }
 
     componentDidMount(){
+      if(typeof window !== 'undefined'){
+        console.log("window is not undefined", window );
+
+       console.log("read ID", window.localStorage.getItem('id'));
+      }
+       
+        
+              
+
+      
+
     const {
         id,
         user_name,
@@ -66,7 +78,8 @@ class UserProfile extends React.Component{
   navToModels(){
     const {editUser_name,
       editPaypal,
-      editEmail, ... rest} = this.state
+      editEmail, 
+      key, ... rest} = this.state
     navigate("/ViewModels",
             {
               state:rest

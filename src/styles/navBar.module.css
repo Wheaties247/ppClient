@@ -1,11 +1,12 @@
 .container{
-	margin-top: 1%;
+	/*margin-top: 1%;*/
 	/*margin-right: 3%;*/
 	/*background: green;*/
 	height: 5vh;
 	width: 100vw;
 	display:flex;
 	/*justify-content: space-around;*/
+	color:white;
 	justify-content: flex-end;
 }
 .identifiyer{

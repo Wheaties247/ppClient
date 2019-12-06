@@ -2,6 +2,7 @@ import React from "react"
 import { navigate } from "gatsby"
 import UserLogin from "../components/UserLogin"
 import UserRegister from "../components/UserRegister"
+import TokenService from "../services/TokenService";
 
 
 import styles from "../styles/userLoginRegister.module.css"
@@ -26,10 +27,21 @@ class UserLoginRegister extends React.Component{
       .then(resp => {
         console.log("RESPONCE DATA", resp);
         const userCreds = resp.data.userCreds
+        const {
+        id,
+        user_name,
+        email,  
+        tokens, 
+        paypal
+          } = userCreds
         if(userCreds === "User not Found"){
         	this.setState({loginError:userCreds})
         }else{
-         
+        window.localStorage.setItem("authToken", userCreds)
+        // TokenService.save('id', id)
+        // TokenService.save('user_name', user_name)
+
+
         navigate("/UserProfile",
           {
               state:userCreds
