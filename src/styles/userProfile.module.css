@@ -15,6 +15,13 @@
 .button{
 	border: 3px solid rgb(215, 39, 186);
 	border-radius: 5px;
-	padding: .8%;
+	padding: 1%;
 	font-size: 1em;
+	width: unset; 
+}
+.button:hover{
+	background: black;
+	color:rgb(215, 39, 186);
+	border: 3px solid white;
+	
 }

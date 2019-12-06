@@ -89,6 +89,7 @@ class ModelProfile extends React.Component{
   	return(
   		<div className={container}>
         <NavBar
+          handleModelNavigation ={null}
           userInfo={this.props.location.state}
         />
         <div className={editBox}>
@@ -103,12 +104,12 @@ class ModelProfile extends React.Component{
                     type = "userName" 
                     property = "user_name"
                     propertyVal={user_name}
-                />:<h2>User Name: {user_name}</h2>}
-           <h2 
+                />:<p>User Name: {user_name}</p>}
+           <p 
            className = {button}
            onClick ={()=>this.toggleEditUsername()}>
              Change
-           </h2>
+           </p>
         </div>
         {/* BREAK*/}
 
@@ -120,12 +121,12 @@ class ModelProfile extends React.Component{
                       type = "email" 
                       property = "email"
                       propertyVal={email}
-                  />:<h2>Email: {email}</h2>}
-             <h2 
+                  />:<p>Email: {email}</p>}
+             <p 
              className = {button}
              onClick ={()=>this.toggleEditEmail()}>
                Change
-             </h2>
+             </p>
         </div>
         {/* BREAK*/}
 
@@ -138,12 +139,12 @@ class ModelProfile extends React.Component{
                     type ="astro"
                     property = "astro_sign"
                     propertyVal={astro_sign}
-                /> :<h2>Astrologic Sign: {astro_sign}</h2>}
-           <h2 
+                /> :<p>Astrologic Sign: {astro_sign}</p>}
+           <p 
            className = {button}
            onClick ={()=>this.toggleEditAstro()}>
              Change
-           </h2>
+           </p>
         </div>
       {/* BREAK*/}
 
@@ -156,12 +157,12 @@ class ModelProfile extends React.Component{
                     type ="paypal"
                     property = "paypal"
                     propertyVal={paypal}
-                /> :<h2>PayPal Account: {paypal}</h2>}
-           <h2 
+                /> :<p>PayPal Account: {paypal}</p>}
+           <p 
            className = {button}
            onClick ={()=>this.toggleEditPaypal()}>
              Change
-           </h2>
+           </p>
         </div>
       
 

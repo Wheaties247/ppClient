@@ -11,11 +11,16 @@ class NavBar extends React.Component{
   }
   
   render(){
-  	const {container, identifiyer} = styles
+  	const {container, identifiyer, viewModels} = styles
     console.log("props", this.props)
     const {tokens, user_name, picture_url} = this.props.userInfo
   	return(
   		<div className={container}>
+          <p className ={viewModels}
+             onClick = {this.props.handleModelNavigation}
+          >
+          View Models
+          </p>
         <div className={identifiyer}>
           <p>Tokens: {tokens}</p>
           {this.props.userInfo.picture_url? 

@@ -46,7 +46,7 @@ class ImageUpload extends Component{
   	return(
   		<div className = {container}>
   			<h1 >IMAGE UPLOAD</h1>
-  			<input onChange={this.handleChange} type="file" name="name"  />
+  			<input onChange={this.handleChange} type="file" name="image"  />
   			<input 
               onClick = {()=>this.sendFileUpload()}
               type= 'submit' 

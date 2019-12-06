@@ -2,6 +2,7 @@ import React from "react"
 import styles from "../styles/userProfile.module.css"
 import NavBar from "../components/NavBar"
 import EditAttribute from "../components/EditAttribute"
+import { navigate } from "gatsby"
 
 
 
@@ -18,6 +19,7 @@ class UserProfile extends React.Component{
     this.toggleEditPaypal = this.toggleEditPaypal.bind(this)
     this.toggleEditEmail = this.toggleEditEmail.bind(this)
     this.editRequestHandler = this.editRequestHandler.bind(this)
+    this.navToModels = this.navToModels.bind(this)
   }
 
     componentDidMount(){
@@ -61,6 +63,17 @@ class UserProfile extends React.Component{
       return prevState
     })
   }
+  navToModels(){
+    const {editUser_name,
+      editPaypal,
+      editEmail, ... rest} = this.state
+    navigate("/ViewModels",
+            {
+              state:rest
+            }
+          )
+      }
+  
   render(){
     console.log("navBar this.props.location.state", this.props.location.state)
     const {
@@ -76,6 +89,7 @@ class UserProfile extends React.Component{
   		<div className={container}>
 
         <NavBar
+        handleModelNavigation ={this.navToModels}
         userInfo ={this.state}
         />
        
@@ -131,8 +145,11 @@ class UserProfile extends React.Component{
              Change
            </p>
         </div>
+        
   		</div>
   		)
   }
 }
+
+
 export default UserProfile
