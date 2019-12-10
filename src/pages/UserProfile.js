@@ -27,7 +27,7 @@ class UserProfile extends React.Component{
       if(typeof window !== 'undefined'){
         console.log("window is not undefined", window );
 
-       console.log("read ID", window.localStorage.getItem('id'));
+       console.log("read currentUser", window.localStorage.getItem('currentUser'));
       }
        
         

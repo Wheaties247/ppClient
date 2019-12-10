@@ -2,7 +2,6 @@ import React from "react"
 import { navigate } from "gatsby"
 import UserLogin from "../components/UserLogin"
 import UserRegister from "../components/UserRegister"
-import TokenService from "../services/TokenService";
 
 
 import styles from "../styles/userLoginRegister.module.css"
@@ -109,7 +108,7 @@ class UserLoginRegister extends React.Component{
 	      console.log("Email in use")
 	      this.setState({loginError:"Email address is in use"})
 	    }else{
-	     
+	     window.localStorage.setItem("currentUser", JSON.stringify(userCreds))
 	      navigate("/UserProfile",
             {
               state:userCreds
