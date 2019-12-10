@@ -90,6 +90,7 @@ class ModelProfile extends React.Component{
   	return(
   		<div className={container}>
         <NavBar
+          currentRoute = "viewModels"
           handleModelNavigation ={null}
           userInfo={this.state}
         />
