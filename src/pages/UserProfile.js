@@ -3,7 +3,7 @@ import styles from "../styles/userProfile.module.css"
 import NavBar from "../components/NavBar"
 import EditAttribute from "../components/EditAttribute"
 import { navigate } from "gatsby"
-import TokenService from "../services/TokenService";
+
 
 
 
@@ -24,16 +24,8 @@ class UserProfile extends React.Component{
   }
 
     componentDidMount(){
-      if(typeof window !== 'undefined'){
-        console.log("window is not undefined", window );
-
-       console.log("read currentUser", window.localStorage.getItem('currentUser'));
-      }
-       
-        
-              
-
-      
+       const currentUser = JSON.parse(window.localStorage.getItem('currentUser'))
+       console.log("read currentUser", currentUser );
 
     const {
         id,
@@ -41,7 +33,7 @@ class UserProfile extends React.Component{
         email,  
         tokens, 
         paypal
-          } = this.props.location.state
+          } = currentUser
         this.setState({
         id,
         user_name,
@@ -80,11 +72,7 @@ class UserProfile extends React.Component{
       editPaypal,
       editEmail, 
       key, ... rest} = this.state
-    navigate("/ViewModels",
-            {
-              state:rest
-            }
-          )
+    navigate("/ViewModels")
       }
   
   render(){

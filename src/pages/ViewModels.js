@@ -10,13 +10,15 @@ class ViewModels extends React.Component{
     	this.state={}
 	}
 	componentDidMount(){
+		const currentUser = JSON.parse(window.localStorage.getItem('currentUser'))
+       console.log("read currentUser", currentUser );
     const {
         id,
         user_name,
         email,  
         tokens, 
         paypal
-          } = this.props.location.state
+          } = currentUser
         this.setState({
         id,
         user_name,

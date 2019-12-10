@@ -32,13 +32,9 @@ class DaGirls extends React.Component{
         	this.setState({loginError:modelCreds})
         }else{
           console.log("modelCreds", modelCreds);
-
+          window.localStorage.setItem("currentUser", modelCreds)
         
-        navigate("/ModelProfile",
-            {
-              state:modelCreds
-            }
-          )
+        navigate("/ModelProfile")
         }
       })
       .catch(err => console.log(`login err: ${err}`));

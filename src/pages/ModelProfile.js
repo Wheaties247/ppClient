@@ -22,6 +22,7 @@ class ModelProfile extends React.Component{
     this.editRequestHandler = this.editRequestHandler.bind(this)
   }
   componentDidMount(){
+      const currentUser = JSON.parse(window.localStorage.getItem('currentUser'))
     const {
         id,
         user_name,
@@ -30,7 +31,7 @@ class ModelProfile extends React.Component{
         tokens, 
         astro_sign,
         picture_url
-          } = this.props.location.state
+          } = currentUser
         this.setState({
           id,
           user_name,
@@ -90,7 +91,7 @@ class ModelProfile extends React.Component{
   		<div className={container}>
         <NavBar
           handleModelNavigation ={null}
-          userInfo={this.props.location.state}
+          userInfo={this.state}
         />
         <div className={editBox}>
         <ImageUpload/>

@@ -36,16 +36,8 @@ class UserLoginRegister extends React.Component{
         if(userCreds === "User not Found"){
         	this.setState({loginError:userCreds})
         }else{
-        window.localStorage.setItem("authToken", userCreds)
-        // TokenService.save('id', id)
-        // TokenService.save('user_name', user_name)
-
-
-        navigate("/UserProfile",
-          {
-              state:userCreds
-            }
-         )
+        window.localStorage.setItem("currentUser", userCreds)
+        navigate("/UserProfile")
         }
       })
       .catch(err => console.log(`login err: ${err}`));
