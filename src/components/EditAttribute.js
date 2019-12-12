@@ -48,6 +48,7 @@ handleSubmit(e){
   .then(resp=>{
     console.log('PUT request Responce',resp);
     this.props.editRequestHandler(resp.data)
+    this.props.toggle();
   })
   .catch(err => {
         console.log("there was an error @ PUT request", err);
@@ -59,7 +60,7 @@ componentDidMount(){
   const id = this.props.id
   this.setState({
                id:id,
-        [property]:property
+        [property]: this.props.propertyVal
     })
 }
 
@@ -67,7 +68,7 @@ render(){
       console.log(this.props.type)
 
     if(!(this.props.type === "astro")){
-      console.log("not astro Edit")
+      console.log("not astro Edit", this.state)
 
       return(
         <div className= {container}>
@@ -77,7 +78,7 @@ render(){
                 type='text' 
                 placeholder = {`Edit ${this.props.propertyVal}`} 
                 name = {this.props.property} 
-                value={this.state.propertyVal} 
+                defaultValue={this.state[this.props.property]} 
                 onChange={this.handleChange}
              />
             <input 

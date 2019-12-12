@@ -32,22 +32,24 @@ class UserProfile extends React.Component{
         user_name,
         email,  
         tokens, 
-        paypal
+        paypal, 
+        confirmed
           } = currentUser
         this.setState({
         id,
         user_name,
         email,  
         tokens, 
-        paypal
+        paypal,
+        confirmed
         })
   }
   editRequestHandler(info){
     console.log("editRequesthandler", info.resp)
     console.log("this.state", this.state)
 
-    const {email, payment_info, tokens, user_id, user_name} = info.resp
-    this.setState({email, payment_info, tokens, id:user_id, user_name}, ()=>console.log("after setState", this.state))
+    const {email, payment_info, tokens, user_id, user_name, confirmed} = info.resp
+    this.setState({email, payment_info, tokens, id:user_id, user_name, confirmed})
   }
     toggleEditUsername(){
     this.setState(prevState=>{
@@ -74,7 +76,13 @@ class UserProfile extends React.Component{
       key, ... rest} = this.state
     navigate("/ViewModels")
       }
-  
+  renderConfirmBox(style){
+    return(
+        <div className={style}>
+       <p> Please Verify Account from Email used to create account</p>
+       </div>
+      )
+  }
   render(){
     console.log("navBar this.props.location.state", this.props.location.state)
     const {
@@ -82,9 +90,15 @@ class UserProfile extends React.Component{
         user_name,
         email,  
         tokens, 
-        paypal  
+        paypal,
+        confirmed  
           } = this.state
-    const {container, editBox, button} = styles
+    const {
+      container, 
+      editBox, 
+      button, 
+      confirmationBox
+    } = styles
    
   	return(
   		<div className={container}>
@@ -93,7 +107,7 @@ class UserProfile extends React.Component{
         handleModelNavigation ={this.navToModels}
         userInfo ={this.state}
         />
-       
+       {confirmed? null:this.renderConfirmBox(confirmationBox)}
 
        <div className={editBox}>
         {this.state.editUser_name? <EditAttribute
@@ -103,6 +117,7 @@ class UserProfile extends React.Component{
                   type = "userName" 
                   property = "user_name"
                   propertyVal={user_name}
+                  toggle ={this.toggleEditUsername}
               />:<p>User Name: {user_name}</p>}
          <p 
          className = {button}
@@ -120,6 +135,7 @@ class UserProfile extends React.Component{
                       type = "email" 
                       property = "email"
                       propertyVal={email}
+                      toggle ={this.toggleEditEmail}
                   />:<p>Email: {email}</p>}
              <p
              className = {button}
@@ -138,6 +154,8 @@ class UserProfile extends React.Component{
                     type ="paypal"
                     property = "paypal"
                     propertyVal={paypal}
+                      toggle ={this.toggleEditPaypal}
+                    
                 /> :<p>PayPal Account: {paypal}</p>}
            <p 
            className = {button}

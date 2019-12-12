@@ -98,7 +98,7 @@ class UserLoginRegister extends React.Component{
       const userCreds = resp.data.userCreds
 	    if(userCreds ==="User already created"){
 	      console.log("Email in use")
-	      this.setState({loginError:"Email address is in use"})
+	      this.setState({error:"Email address is in use"})
 	    }else{
 	     window.localStorage.setItem("currentUser", JSON.stringify(userCreds))
 	      navigate("/UserProfile",
