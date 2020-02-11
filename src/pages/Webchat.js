@@ -2,17 +2,18 @@ import React from "react"
 import { Link } from "gatsby"
 // import WebCamPage from "../components/WebCamPage"
 	// <WebCamPage />
-import styles from "../styles/webcam_2.module.css"
+import styles from "../styles/webcamE.module.css"
 import axios from "axios";
+import io from "socket.io-client";
 
-const {container} = styles
+const {container, title} = styles
 class Webchat extends React.Component{
 	constructor(props) {
 	    super(props);
 	    this.state = {}
 	}
 	componentDidMount(){
-    	axios(`http://localhost:7770/webcams`, 
+    	axios(`http://localhost:7770/webcams/${1}`, 
     	{body:"test"}
     	)
     	.then(resp=>{
@@ -26,7 +27,7 @@ class Webchat extends React.Component{
 	render(){
 		return(
 			<div className={container}>
-				<h1>Webchat</h1>
+				<h1 className={title}>Webchat</h1>
 			</div>
 			)
 	}

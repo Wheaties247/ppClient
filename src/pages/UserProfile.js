@@ -3,7 +3,7 @@ import styles from "../styles/userProfile.module.css"
 import NavBar from "../components/NavBar"
 import EditAttribute from "../components/EditAttribute"
 import { navigate } from "gatsby"
-
+import axios from 'axios';
 
 
 
@@ -24,25 +24,40 @@ class UserProfile extends React.Component{
   }
 
     componentDidMount(){
-       const currentUser = JSON.parse(window.localStorage.getItem('currentUser'))
+       let currentUser = JSON.parse(window.localStorage.getItem('currentUser'))
        console.log("read currentUser", currentUser );
+       axios({
+      url:"http://localhost:7770/users/currUserData",
+      method:"post",
+      data: currentUser
+    })
+    .then(resp=>{
+      console.log("Post currrUserData ", resp)
+      currentUser = resp.data.userInfo
+          
 
-    const {
-        id,
+      const {
+        user_id,
         user_name,
         email,  
         tokens, 
         paypal, 
         confirmed
           } = currentUser
+
         this.setState({
-        id,
+        id:user_id,
         user_name,
         email,  
         tokens, 
         paypal,
         confirmed
         })
+    })
+    .catch(err=>{
+      console.log("there was an error in POST currUserData", err)
+    })
+    
   }
   editRequestHandler(info){
     console.log("editRequesthandler", info.resp)

@@ -30,7 +30,8 @@ class ModelProfile extends React.Component{
         paypal, 
         tokens, 
         astro_sign,
-        picture_url
+        picture_url,
+        confirmed
           } = currentUser
         this.setState({
           id,
@@ -39,7 +40,8 @@ class ModelProfile extends React.Component{
           paypal, 
           tokens, 
           astro_sign,
-          picture_url
+          picture_url,
+          confirmed
         })
   }
     editRequestHandler(info){
@@ -73,8 +75,15 @@ class ModelProfile extends React.Component{
       return prevState
     })
   }
+  renderConfirmBox(style){
+    return(
+        <div className={style}>
+       <p> Please Verify Account from Email used to create account</p>
+       </div>
+      )
+  }
   render(){
-  	const {container, editBox, button} = styles
+  	const {container, editBox, button, confirmationBox} = styles
     console.log("THIS.STATE", this.state)
     const {
         id,
@@ -83,7 +92,8 @@ class ModelProfile extends React.Component{
         paypal, 
         tokens, 
         astro_sign,
-        picture_url
+        picture_url, 
+        confirmed
           } = this.state
 
 
@@ -94,6 +104,7 @@ class ModelProfile extends React.Component{
           handleModelNavigation ={null}
           userInfo={this.state}
         />
+        {confirmed? null:this.renderConfirmBox(confirmationBox)}
         <div className={editBox}>
         <ImageUpload/>
 
@@ -106,6 +117,7 @@ class ModelProfile extends React.Component{
                     type = "userName" 
                     property = "user_name"
                     propertyVal={user_name}
+                    toggle = {this.toggleEditUsername}
                 />:<p>User Name: {user_name}</p>}
            <p 
            className = {button}
@@ -123,6 +135,7 @@ class ModelProfile extends React.Component{
                       type = "email" 
                       property = "email"
                       propertyVal={email}
+                      toggle ={this.toggleEditEmail}
                   />:<p>Email: {email}</p>}
              <p 
              className = {button}
@@ -141,6 +154,7 @@ class ModelProfile extends React.Component{
                     type ="astro"
                     property = "astro_sign"
                     propertyVal={astro_sign}
+                    toggle = {this.toggleEditAstro}
                 /> :<p>Astrologic Sign: {astro_sign}</p>}
            <p 
            className = {button}
@@ -159,6 +173,7 @@ class ModelProfile extends React.Component{
                     type ="paypal"
                     property = "paypal"
                     propertyVal={paypal}
+                    toggle = {this.toggleEditPaypal}
                 /> :<p>PayPal Account: {paypal}</p>}
            <p 
            className = {button}

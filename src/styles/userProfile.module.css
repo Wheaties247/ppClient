@@ -9,7 +9,7 @@
 	border: 2px solid black;
 	display: flex;
 	justify-content: space-between;
-	width: 60vh;
+	width: 65vh;
 	margin-left: 3%;
 }
 .button{
@@ -17,7 +17,7 @@
 	border-radius: 5px;
 	padding: 1%;
 	font-size: 1em;
-	width: unset; 
+	/*width: unset; */
 }
 .button:hover{
 	background: black;

@@ -13,10 +13,13 @@ class ImageUpload extends Component{
     this.handleChange = this.handleChange.bind(this);
 
   }
-  sendFileUpload(){
+  sendFileUpload(e){
+    console.log("sendFileUpload", this.state)
+
+    e.preventDefault();
   	axios({
-  		url:"http://localhost:7770/models/img_upload",
-  		method:"post",
+  		url:"http://localhost:7770/models/imgUpload",
+  		method:"POST",
   		data: this.state
   	})
   	.then(resp=>{
@@ -26,9 +29,11 @@ class ImageUpload extends Component{
         console.log("there was an error @ imgUpload request", err);
       });
   }
+
   handleChange(e){
   const name = e.target.name;
-    this.setState({[name]:e.target.value});
+  console.log(e.target.files[0])
+    this.setState({[name]: e.target.files[0]});
   }
   render(){
   	 // const cl = new cloudinary.Cloudinary({
@@ -45,14 +50,19 @@ class ImageUpload extends Component{
 // console.log("CL",cl)
   	return(
   		<div className = {container}>
+      <form onSubmit = {this.sendFileUpload}>
   			<h1 >IMAGE UPLOAD</h1>
-  			<input onChange={this.handleChange} type="file" name="image"  />
   			<input 
-              onClick = {()=>this.sendFileUpload()}
+          type="file" 
+          onChange={this.handleChange}  
+          name="file"
+          accept="image/png, image/jpeg"
+            />
+  			<input 
               type= 'submit' 
               value='Submit' 
              />
-
+      </form>
   		</div>
   		)
   }

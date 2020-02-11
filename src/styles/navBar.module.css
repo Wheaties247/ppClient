@@ -27,7 +27,7 @@
 	align-items: center;
 	border: 3px solid rgb(215, 39, 186);
 	border-radius: 5px;
-	padding: 1%;
+	padding: 1.5%;
 }
 .viewModels:hover{
 	background: black;

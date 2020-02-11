@@ -18,3 +18,15 @@
 	border-radius: 5px;
 	padding: 1px;
 }
+.confirmationBox{
+	background: rgb(215, 39, 186);
+	width: 100vw;
+	height: 5%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.confirmationBox p{
+	margin: 0 ;
+}

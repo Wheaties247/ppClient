@@ -35,8 +35,11 @@ class ModelRegister extends React.Component{
         <input type= 'password' placeholder='Password' name= 'password' onChange={this.handleChange}/>
       <br />
         <input type= 'password' placeholder='Confirm password' name= 're_password' onChange={this.handleChange}/>
+      <br />
 
         <input type= 'text' placeholder='PayPal account' name= 'paypal' onChange={this.handleChange}/>
+      <br />
+        
         <input type= 'text' placeholder='Confirm PayPal' name= 're_paypal' onChange={this.handleChange}/>
       <br />
       
