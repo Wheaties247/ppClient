@@ -2,6 +2,7 @@ import React from "react"
 import styles from "../styles/viewModels.module.css"
 import NavBar from "../components/NavBar"
 import TokenService from "../services/TokenService";
+import axios from 'axios';
 
 const {container} = styles
 class ViewModels extends React.Component{
@@ -12,6 +13,14 @@ class ViewModels extends React.Component{
 	componentDidMount(){
 		const currentUser = JSON.parse(window.localStorage.getItem('currentUser'))
        console.log("read currentUser", currentUser );
+       axios('http://localhost:7770/models/all')
+		.then(resp=>{
+			console.log("All Models", resp)
+		})
+		.catch(err=>{
+			console.log("there was an error in Get all Models", err)
+
+		})
     const {
         id,
         user_name,
@@ -26,6 +35,7 @@ class ViewModels extends React.Component{
         tokens, 
         paypal
         })
+
  	}
 	render(){
          
